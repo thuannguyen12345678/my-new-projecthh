@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->string('slug');
-            $table->string('description');   
-            $table->string('status');   
-            $table->string('category_id');   
-            $table->foreign('category_id')->references('id')->on('categories');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->string('image');
+            
         });
     }
 
@@ -29,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
+        Schema::table('categories', function (Blueprint $table) {
             //
         });
     }

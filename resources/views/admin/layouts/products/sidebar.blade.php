@@ -18,11 +18,11 @@
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="{{ route('staffs.index') }}">Nhân Viên</a>
-                        <a class="nav-link" href="{{ route('tasks.index') }}">Sản phẩm</a>
-                        <a class="nav-link" href="{{ route('products.index') }}">quản lý sản phẩm</a>
+                        <a class="nav-link" href="{{ route('tasks.index') }}">khách hàng</a>
+                        
                     </nav>
                 </div>
-                
+                <a class="nav-link" href="{{ route('products.index') }}">Danh Mục Sản Phẩm</a>
                 <div class="sb-sidenav-menu-heading">Addons</div>
                 <a class="nav-link" href="{{ route('index') }}">
                     <div class="sb-nav-link-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">

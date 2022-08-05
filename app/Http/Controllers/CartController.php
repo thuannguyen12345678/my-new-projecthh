@@ -69,6 +69,7 @@ class CartController extends Controller
             }
             session()->flash('success', 'Product removed successfully');
         }
+        
     }
     public function details(){
         return view('details');

@@ -71,8 +71,8 @@
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
                             <a href="{{ route('staffs.index') }}">
-                                {{-- <i  class="bi bi-umbrella-fill h1"></i> --}}
-                                <img scr="https://giayxshop.vn/wp-content/uploads/2018/12/xshop-light.png" style="with:50px;height:50px;width:50px">
+                                <i  class="bi bi-umbrella-fill h1"></i>
+                                {{-- <img scr="https://giayxshop.vn/wp-content/uploads/2018/12/xshop-light.png" style="with:50px;height:50px;width:50px"> --}}
                             </a>
                         </div>
                     </div>
@@ -98,6 +98,7 @@
                                 </a>
                                 <div class="cart-hover">
                                     <div class="select-items">
+                                     
                                         <table> 
                                             <tbody>
 
@@ -109,7 +110,7 @@
                                                         @php $total += $details['price'] * $details['quantity'] @endphp
                                                         <tr>
                                                             <td class="si-pic" >
-                                                                 <img style="" src="assets/img/cart-page/{{ $details['img'] }}"                                                                    alt="">
+                                                                 <img src="{{asset ('public/uploads/login/'. $details['img'])}}" alt="ảnh lỗi rồi"/>                                                                    alt="">
                                                             </td>
                                                             <td class="si-text">
                                                                 <div class="product-selected">
@@ -159,7 +160,7 @@
                             <li><a href="#">gìay NIKE</a></li>
                             <li><a href="#">giày THỂ THAO NAM</a></li>
                             <li><a href="#">gìay THỂ THAO NỮ</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
+                           
                         </ul>
                     </div>
                 </div>
@@ -169,7 +170,7 @@
                         <li><a href="#">Shop</a></li>
                         <li><a href="{{route('details_cart')}}">Thông tin</a></li>
                         <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
+                        {{-- <li><a href="#">Contact</a></li> --}}
                         <li><a href="#">Pages</a></li>
                     </ul>
                 </nav>
@@ -195,6 +196,8 @@
     <!-- Breadcrumb Section Begin -->
 
     <!-- Product Shop Section Begin -->
+
+    <h3> Sản Phẩm mới nhất</h3>
     <section class="product-shop spad">
         <div class="container">
             <div class="row">
@@ -205,7 +208,7 @@
                                 <div class="col-lg-4 col-sm-6">
                                     <div class="product-item">
                                         <div class="pi-pic">
-                                            <img src="public/uploads/login/{{$prd->image}}"style= " height=100px; width=200px">
+                                            <img src="public/uploads/login/{{$prd->image}}"style= "height:350px; width:200px">
                                             {{-- <img  src="assets/img/cart-page/{{ $prd->img }}" alt="" style="width:200px; height:350px;"> --}}
                                             <div class="sale pp-sale">Sale</div>
                                             <div class="icon">
@@ -242,6 +245,56 @@
         </div>
         </div>
     </section>
+    
+    <h3> Sản Phẩm Bán Chạy</h3>
+    <section class="product-shop spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 order-1 order-lg-2">
+                    <div class="product-list">
+                        <div class="row">
+                            @foreach ($products as $prd)
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="product-item">
+                                        <div class="pi-pic">
+                                            <img src="public/uploads/login/{{$prd->image}}"style= "height:350px; width:200px">
+                                            {{-- <img  src="assets/img/cart-page/{{ $prd->img }}" alt="" style="width:200px; height:350px;"> --}}
+                                            <div class="sale pp-sale">Sale</div>
+                                            <div class="icon">
+                                                <i class="icon_heart_alt h2"></i>
+                                            </div>
+                                            <ul>
+                                                <li class="w-icon active"><a href="{{ route('details_cart') }}"><i
+                                                            class="icon_bag_alt h4">
+                                                        </i></a></li>
+                                                <li class="quick-view"><a
+                                                        href="{{ route('add.to.cart', $prd->id) }}">+ Add Cart</a>
+                                                </li>
+                                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="pi-text">
+                                            <div class="catagory-name">Towel</div>
+                                            <a href="#">
+                                                <h5>{{ $prd->name }}</h5>
+                                            </a>
+                                            <div class="product-price">
+                                                {{ number_format($prd->price) }}₫
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
     <!-- Product Shop Section End -->
 
     <!-- Partner Logo Section Begin -->

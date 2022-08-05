@@ -26,6 +26,24 @@
                     <label for="exampleFormControlFile1">Ảnh</label>
                     <input type="file" name="image" class="form-control-file" required>
                 </div>
+                <div class="form-group">
+                    <label>slug</label>
+                    <input class="form-control" rows="3" name="slug" required>
+                </div>
+                <div class="form-group">
+                    <label>Mô Tả</label>
+                    <input class="form-control" rows="3" name="description" required>
+                </div>
+                <div class="form-group">
+                    <label>Trang thái</label>
+                    <select name="status">
+                        <option value="1">còn</option>
+                        <option value="2">hết</option>
+
+                    </select>
+
+                </div>
+
 
                 {{-- <div class="form-group">
                     <label for="exampleFormControlFile1">Ngày hết hạn</label>

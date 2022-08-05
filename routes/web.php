@@ -53,7 +53,7 @@ Route::middleware(['auth', 'PreventBackHistory'])->group(function () {
         Route::get('/{id}/destroy', [StaffController::class, 'destroy'])->name('staffs.destroy');
     });
     Route::group(['prefix' => 'categories'], function () {
-        Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+        Route::get('/', [CategoryController::class, 'index'])->name('categories.list');
         Route::get('/dashboard', [CategoryController::class, 'haha'])->name('categories.dashboard');
         Route::get('/create', [CategoryController::class, 'create'])->name('categories.create');
         Route::post('/create', [CategoryController::class, 'store'])->name('categories.store');

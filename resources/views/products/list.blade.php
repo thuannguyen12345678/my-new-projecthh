@@ -21,8 +21,11 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Tên danh mục sản phẩm</th>
-                    <th scope="col">giá</th>
+                    <th scope="col">Giá</th>
                     <th scope="col">Ảnh</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col">Trạng Thái</th>
                     <th scope="col">Hoạt động</th>
                 
                     <th></th>
@@ -34,6 +37,7 @@
                         <th scope="row">{{ ++$key }}</th>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->price }}</td>
+                        
                         <td>
                             @if($product->image)
                                 <img src="{{ asset('public/uploads/login/'.$product->image) }}" alt="" style="width: 120px; height: 120px">
@@ -41,6 +45,10 @@
                                 {{'Chưa có ảnh'}}
                             @endif
                         </td>
+                        <td>{{ $product->slug }}</td>
+                        <td>{{ $product->description }}</td>
+                        <td>{{ $product->status }}</td>
+                       
                         {{-- <td>{{ $product->due_date }}</td> --}}
                         <td>
                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary">sửa</a>

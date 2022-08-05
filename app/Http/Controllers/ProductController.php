@@ -46,6 +46,9 @@ class ProductController extends Controller
         $product = new Product();
         $product->name = $request->input('name');
         $product->price = $request->input('price');
+        $product->slug = $request->input('slug');
+        $product->description = $request->input('description');
+        $product->status = $request->input('status');
         
 
         // if($request->hasFile('image')){
@@ -63,6 +66,16 @@ class ProductController extends Controller
         $product->image=$new_image;
         $request['login_image']=$new_image;
 
+
+
+        // if ($request->hasFile('image')) {
+        //     $file = $request->image;
+        //     $fileExtension = $file->getClientOriginalExtension();//jpg,png lấy ra định dạng file và trả về
+        //     $fileName = time();//45678908766 tạo tên file theo thời gian
+        //     $newFileName = $fileName.'.'.$fileExtension;//45678908766.jpg
+        //     $path = 'storage/'. $request->file('image')->store('image', 'public');//lưu file vào mục public/images với tê mới là $newFileName
+        //     $product->image = $path;
+        // }
         $product->save();
 
         Session::flash('success', 'Tạo mới thành công');
@@ -105,6 +118,9 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->name = $request->input('name');
         $product->price = $request->input('price');
+        $product->slug = $request->input('slug');
+        $product->description = $request->input('description');
+        $product->status = $request->input('status');
        
         // if ($request->hasFile('image')) {
 
@@ -138,7 +154,7 @@ class ProductController extends Controller
         //dung session de dua ra thong bao
         Session::flash('success', 'Cập nhật thành công');
         //tao moi xong quay ve trang danh sach product
-        return redirect()->route('products.index');
+        return redirect()->route('products.list');
     }
 
     /**
@@ -153,8 +169,12 @@ class ProductController extends Controller
         $image = $product->image;
 
         //delete image
-        if ($image) {
-            Storage::delete('/public/' . $image);
+        // if ($image) {
+        //     Storage::delete('/public/' . $image);
+        // }
+        $image = 'public/uploads/login/'.$product->image;
+        if(file_exists($image)){
+            unlink($image);
         }
 
         $product->delete();

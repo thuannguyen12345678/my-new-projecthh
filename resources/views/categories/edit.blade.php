@@ -10,38 +10,38 @@
         </div>
 
         <div class="col-md-12">
-            <form method="post" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('categories.update', $category->id) }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label>Tên sản phẩm</label>
-                    <input type="text" class="form-control" name="name" value="{{ $product->name }}" required>
+                    <label>Tên giày</label>
+                    <input type="text" class="form-control" name="LOAIGIAY" value="{{ $category->LOAIGIAY }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Thương hiệu</label>
+                    <input type="text" class="form-control" name="THUONGHIEU" value="{{ $category->THUONGHIEU }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Size</label>
+                    <input type="text" class="form-control" name="SIZE" value="{{ $category->SIZE }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Màu Sắc</label>
+                    <input type="text" class="form-control" name="MAUSAC" value="{{ $category->MAUSAC }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Mô tả</label>
+                    <input type="text" class="form-control" name="MOTA" value="{{ $category->MOTA }}" required>
                 </div>
 
                 <div class="form-group">
-                    <label>giá</label>
-                    <input class="form-control" rows="3" name="price"  required>{{ $product->price }}
+                    <label>Trạng thái</label>
+                    <textarea class="form-control" rows="3" name="SLUG"  required>{{ $category->SLUG }}</textarea>
                 </div>
-
 
                 <div class="form-group">
                     <label>Ảnh</label>
                     <input type="file" name="image" class="form-control-file" >
                 </div>
-                
-                <div class="form-group">
-                    <label>slug</label>
-                    <input class="form-control" rows="3" name="slug"  required>{{ $product->slug }}
-                </div>
-                <div class="form-group">
-                    <label>Mô tả</label>
-                    <input class="form-control" rows="3" name="description"  required>{{ $product->description }}
-                </div>
-                <div class="form-group">
-                    <label>Trạng thái</label>
-                    <input class="form-control" rows="3" name="status"  required>{{ $product->status }}
-                </div>
-
-                
 
                 {{-- <div class="form-group">
                     <label>Ngày hết hạn</label>
